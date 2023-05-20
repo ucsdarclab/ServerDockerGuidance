@@ -18,7 +18,7 @@ RUN apt-get install -y build-essential              # linux packages, usually us
 
 RUN mkdir /path/<...>                               # make a directory
 
-COPY . /opt/app                                     # copy the current directory (on the server) to /opt/app on virtual file system
+COPY . /opt/app                                     # copy the current directory (of Dockerfile) to /opt/app on virtual file system
 WORKDIR . /opt/app                                  # sets the working directory for any later docker commands
 
 RUN pip install -r requirements.txt                 # install python dependency with -r. The requirements.txt file should be in the same dir as Dockerfile.
@@ -39,7 +39,7 @@ RUN rm Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh
 ENV PATH=/miniconda/bin:${PATH}
 RUN conda update -y conda
 
-COPY environment.yaml environment.yaml
+COPY environment.yaml environment.yaml               # require an environment.yaml file to be at the same directory as Dockerfile
 RUN conda env create -f environment.yaml
 SHELL ["conda","run","-n","<envname>","/bin/bash","-c"]
 
