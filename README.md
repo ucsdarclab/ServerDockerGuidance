@@ -32,7 +32,9 @@ ARG UBUNTU_VER=20.04
 ARG CONDA_VER=latest
 ARG OS_TYPE=x86_64
 FROM ubuntu:${UBUNTU_VER}
-
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y curl
 RUN curl -LO "http://repo.continuum.io/miniconda/Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh"
 RUN bash Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh -p /miniconda -b
 RUN rm Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh
