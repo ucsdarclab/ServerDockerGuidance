@@ -72,4 +72,4 @@ To exit the container, simply type `ctrl c+d` (this will kill the container if y
 
 A container might be lost if it stays idle for a long time. To prevent your training job from stopping, a solution is to use the `screen` command on linux. After entering into a screen, a container won't be killed unless you command it. It is a good practice to save important data to a mounted volume specified with `-v`. Data that are not write to the shared filesystem will be deleted after the container stops.
 
-[^1]: Last update: 5/18/2023, by Xiao Liang 
+[^1]: Last update: 6/26/2023, by Xiao Liang, Ali Alabiad 
