@@ -43,7 +43,7 @@ WORKDIR /usr/src/app
 COPY resources/env.yml ./env.yml 
 COPY resources/requirements.txt ./requirements.txt
 RUN mamba env update create -f env.yml
-SHELL ["mamba","run","-n","ndg","/bin/bash","-c"]
+SHELL ["mamba","run","-n","<env_name>","/bin/bash","-c"]
 SHELL ["/bin/bash","-c"]
 RUN mamba init
 RUN echo 'mamba activate <env_name>' >> ~/.bashrc
