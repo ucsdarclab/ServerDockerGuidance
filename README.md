@@ -51,7 +51,26 @@ WORKDIR /home
 ```
 
 After you have customized your Dockerfile, you can then run `docker build -t <image_name> /path/to/Dockerfile`. You can check existing docker images with `docker image ls`. Please make sure you remove all `<none>` image if those are results of your build.
+#### Obtaining Notable (Complementary) tools/packages on Dockerfile  
+```
+#Important to have before dowanloading any of the tools orpackages
+RUN apt-get -y update
 
+#Obtaining git (for running git commnads on the container)
+RUN apt install -y git
+
+#Obtaining make (for running make files on the container)
+RUN apt install -y make
+
+#Obtaining a g++ compiler (to compile and run C++ files on the container)
+RUN apt-get install -y g++
+
+#Obtaining a gcc compiler (to compile and run C files on the computer)
+RUN apt-get install -y gcc
+
+#Obtain Open3D (for computer-vision visualization)
+RUN pip install open3d -U
+```
 
 #### Run Docker Container
 
