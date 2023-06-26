@@ -28,26 +28,25 @@ RUN pip install jupyter                             # you can also directly inst
 In case you would like to use conda to manage environment in docker:
 
 ```
-ARG UBUNTU_VER=20.04
-ARG CONDA_VER=latest
-ARG OS_TYPE=x86_64
-FROM ubuntu:${UBUNTU_VER}
+FROM nvcr.io/nvidia/cuda:11.3.0-cudnn8-runtime-ubuntu20.04
+
+#Obtain curl
 RUN apt-get -y update
-RUN apt-get -y upgrade
-RUN apt-get install -y curl
-RUN curl -LO "http://repo.continuum.io/miniconda/Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh"
-RUN bash Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh -p /miniconda -b
-RUN rm Miniconda3-${CONDA_VER}-Linux-${OS_TYPE}.sh
-ENV PATH=/miniconda/bin:${PATH}
-RUN conda update -y conda
+RUN apt-get -y install -y curl
 
-COPY environment.yaml environment.yaml               # require an environment.yaml file to be at the same directory as Dockerfile
-RUN conda env create -f environment.yaml
-SHELL ["conda","run","-n","<envname>","/bin/bash","-c"]
+#Obtain Micromamba
+RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh" \
+    && bash Mambaforge-$(uname)-$(uname -m).sh -bfp /usr/local
 
+#Run MicroMamba commands
+WORKDIR /usr/src/app
+COPY resources/env.yml ./env.yml 
+COPY resources/requirements.txt ./requirements.txt
+RUN mamba env update create -f env.yml
+SHELL ["mamba","run","-n","ndg","/bin/bash","-c"]
 SHELL ["/bin/bash","-c"]
-RUN conda init
-RUN echo 'conda activate <envname>' >> ~/.bashrc
+RUN mamba init
+RUN echo 'mamba activate <env_name>' >> ~/.bashrc
 WORKDIR /home
 ```
 
