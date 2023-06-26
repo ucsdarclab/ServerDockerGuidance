@@ -25,7 +25,7 @@ RUN pip install -r requirements.txt                 # install python dependency 
 RUN pip install jupyter                             # you can also directly install from using pip
 ```
 
-In case you would like to use conda to manage environment in docker:
+In case you would like to use mamba (or conda) to manage environment in docker:
 
 ```
 FROM nvcr.io/nvidia/cuda:11.3.0-cudnn8-runtime-ubuntu20.04
