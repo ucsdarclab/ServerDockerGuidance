@@ -1,11 +1,11 @@
 ## Omniverse/Isaac Sim Documentation [^1]
 
-The following is meant to serve as an update to the ARCLab server's [Docker Guide](https://github.com/ucsdarclab/ServerDockerGuidance/blob/main/README.md?plain=1) describing the installation process of **NVIDIA Omniverse/Isaac Sim** and one method of creating a containerized environment to run Isaac Sim off the lab's server.
+The following is meant to serve as an update to the ARCLab server's [Docker Guide](https://github.com/ucsdarclab/ServerDockerGuidance/blob/main/README.md) describing the installation process of **NVIDIA Omniverse/Isaac Sim** and one method of creating a containerized environment to run Isaac Sim off the lab's server.
 
 Same as with the Docker Guide, there are other techniques/methods which may be a good extension of this document or may be more efficient. Feel free to update this page with the prevalent information.
 
 ### Prerequisite(s):
-Complete the necessary environment setup on the [Docker Guide](https://github.com/ucsdarclab/ServerDockerGuidance/blob/main/README.md?plain=1).
+Complete the necessary environment setup on the [Docker Guide](https://github.com/ucsdarclab/ServerDockerGuidance/blob/main/README.md).
 
 Summary:
 1. Install Docker
