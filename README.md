@@ -3,7 +3,7 @@
 
 This is a very simple guide for using servers and docker. All techniques introduced here are pretty simple. If later you find advanced techniques that you think can be a good extension of this file, please let the maintainer know!!!
 
-**First thing: you should not directly install any packages or change system setting on the lab servers. All dependencies and environments should be properly maintained in DOCKER.** A common workflow of docker is 1.building a **image** with some configuration file, 2. run a **container** from a built image.  
+**First thing: you should not directly install any packages or change system setting on the lab servers. All dependencies and environments should be properly maintained in DOCKER.** A common workflow of docker is 1.building a **image** with some configuration file, 2. run a **container** from a built image. 3. execute your code or program in the container
 
 
 #### Build Docker Image
