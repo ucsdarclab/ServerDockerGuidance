@@ -42,7 +42,7 @@ RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/downloa
 WORKDIR /usr/src/app
 COPY resources/env.yml ./env.yml 
 COPY resources/requirements.txt ./requirements.txt
-RUN mamba env update create -f env.yml
+RUN mamba env create -f env.yml
 SHELL ["mamba","run","-n","<env_name>","/bin/bash","-c"]
 SHELL ["/bin/bash","-c"]
 RUN mamba init
