@@ -50,7 +50,7 @@ RUN echo 'mamba activate <env_name>' >> ~/.bashrc
 WORKDIR /home
 ```
 
-After you have customized your Dockerfile, you can then run `docker build -t <image_name> /path/to/Dockerfile`. You can check existing docker images with `docker image ls`. Please make sure you remove all `<none>` image if those are results of your build.
+After you have customized your Dockerfile, you can then run `docker build -t <image_name> /path/to/DockerfileFolder`. You can check existing docker images with `docker image ls`.
 #### Obtaining Notable (Complementary) tools/packages on Dockerfile  
 ```
 #Important to have before dowanloading any of the tools orpackages
@@ -89,6 +89,30 @@ bash     this keyword will open a bash shell of the container for you after you 
 
 To exit the container, simply type `ctrl c+d` (this will kill the container if you have `--rm` tag). You can exam all running containers with `docker container ls`. 
 
+#### Avoid File Permission Issue in Docker
+
+If a file is created within a docker container, the host will have limited permission to the file (i.e. `permission denied` when you try to edit the file outside the container). For details of how to avoid this issue, check this [link](https://vsupalov.com/docker-shared-permissions/).
+
+In summary, you need to add the following line to the end of your Dockerfile
+```
+ARG USER_ID
+ARG GROUP_ID
+
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+USER user
+```
+and when you build the docker image, use the following command
+
+```
+docker build -t <image_name> \
+  --build-arg USER_ID=$(id -u) \
+  --build-arg GROUP_ID=$(id -g) .
+
+```
+
+#### Keep a Container Running
+
 A container might be lost if it stays idle for a long time. To prevent your training job from stopping, a solution is to use the `screen` command on linux. After entering into a screen, a container won't be killed unless you command it. It is a good practice to save important data to a mounted volume specified with `-v`. Data that are not write to the shared filesystem will be deleted after the container stops.
 
-[^1]: Last update: 6/26/2023, by Xiao Liang, Ali Alabiad 
+[^1]: Last update: 4/14/2024, by Xiao Liang 
