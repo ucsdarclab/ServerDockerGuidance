@@ -36,10 +36,6 @@ This guide provides step-by-step instructions for running NVIDIA's Isaac Sim rem
    ```
    docker pull nvcr.io/nvidia/isaac-sim:4.2.0
    ```
-   Note: You can skip steps 3, 4 and 5 if you already have the image. Check with:
-   ```
-   docker image ls
-   ```
 
 6. **Run the Isaac Sim Docker container**
    ```
