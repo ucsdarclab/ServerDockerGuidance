@@ -11,7 +11,7 @@ This guide provides step-by-step instructions for running NVIDIA's Isaac Sim rem
 
 1. **SSH into the remote server**
    ```
-   ssh username@blackdragon1.ucsd.edu
+   ssh username@<server_name>.ucsd.edu
    ```
    Enter your password when prompted.
 
