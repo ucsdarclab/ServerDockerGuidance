@@ -72,12 +72,13 @@ This guide provides step-by-step instructions for running NVIDIA’s Isaac Sim r
    echo “${dockerfile}”
    docker build --build-arg ISAAC_SIM_VERSION=${isaac_sim_version} -t curobo_docker:${image_tag} -f ${dockerfile} .
    ```
+    In the file `isaac_sim.dockerfile` change the `VULKAN_SDK_VERSION` to `1.3.231.1` (other available version might also works)
+ 
 2. **Build Nvidia Docker Container for Isaac Sim and Curobo**
    Run below command to build docker container.
    ```
    bash build_docker.sh isaac_sim_4.2.0
    ```
-   You could change isaac_sim_4.2.0 to any tag for your curobo image and later you need to put ```curobo_docker:{custom_image_tag}``` for running your container.
 3. **Run docker image**
    Run following command to enable GPUs and network access for docker image.
    ```
