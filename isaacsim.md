@@ -22,7 +22,7 @@ This guide provides step-by-step instructions for running NVIDIA's Isaac Sim rem
    Note this IP address for later use.
 
 3. **Generate NGC API Key**
-   - Log into your NGC account and generate an API key.
+   - Log into your [NGC](https://org.ngc.nvidia.com/setup/api-key) account and generate an API key.
    - https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_container.html#container-deployment
 
 4. **Log in to the NVIDIA Container Registry**
