@@ -50,7 +50,7 @@ RUN echo 'mamba activate <env_name>' >> ~/.bashrc
 WORKDIR /home
 ```
 
-After you have customized your Dockerfile, you can then run `docker build -t <image_name> /path/to/DockerfileFolder`. You can check existing docker images with `docker image ls`.
+After you have customized your Dockerfile, you can then run `docker build -t <image_name>:<username> /path/to/DockerfileFolder`. You can check existing docker images with `docker image ls`.
 
 #### Run Docker Container
 
