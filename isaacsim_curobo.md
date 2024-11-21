@@ -129,4 +129,4 @@ If you encounter any issues:
 For more detailed information, refer to the official NVIDIA Isaac Sim documentation.\
 https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_container.html#container-deployment
 
-[^1]: Last update: 10/17/2024, by Feiyang Ma 
+[^1]: Last update: 11/20/2024, by Xiao Liang
